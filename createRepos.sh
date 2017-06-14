@@ -6,9 +6,12 @@
 
 token=$(<token.txt)
 
-echo $token
+echo "Your Token: "$token
 
-echo "Pfad zur Teilnehmerliste eingeben (default ./names.txt):"
+echo "class name:"
+read className
+
+echo "Path to names list (default ./names.txt):"
 read pathNames
 
 if [[ "$pathNames" = "" ]]; then
@@ -17,7 +20,7 @@ fi
 
 echo "private (y/n)?"
 read private
-if [ "$private" = "y" ]; then
+if [[ "$private" = "y" ]]; then
   private="true"
 else
   private="false"
@@ -25,20 +28,21 @@ fi
 
 echo "auto_init (y/n)?"
 read auto_init
-if [ "$auto_init" = "y" ]; then
+if [[ "$auto_init" = "y" ]]; then
   auto_init="true"
 else
   auto_init="false"
 fi
 
-echo "Eingabe: $pathNames private: $private"
+description="Repo_für_den_Kurs:'$className'"
+
+echo "Input: $pathNames private: $private auto_init: $auto_init"
 
 for rn in $(<$pathNames); do
     echo "the next name is $rn"
-    d='{"name":"'$rn'","private":'$private',"auto_init":'$auto_init'}'
+    d='{"name":"'$className'_'$rn'","description":"'$description'","private":'$private',"auto_init":'$auto_init'}'
     echo $d;
     curl -H "Authorization: token $token" \
     https://api.github.com/user/repos \
     -d $d
-
 done
