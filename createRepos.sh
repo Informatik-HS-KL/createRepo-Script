@@ -6,7 +6,7 @@
 
 token=$(<token.txt)
 
-echo "Your Token: "$token
+echo "Your Token: $token"
 
 echo "class name:"
 read className
