@@ -1,4 +1,4 @@
-# createRepo-Script
+## createRepo-Script
 
 create GitHub-Repos withe a names list for students.
 
@@ -9,3 +9,20 @@ Inputs:
 2. path to names list  
 3. private yes or no (default: public)
 4. auto_init yes or no (default: without auto_init)
+5. organization yes or no (default: no)
+  1. name of the organization
+
+
+## inviteUser-Script
+
+create a list with the repo-names and the users:
+
+```
+repo: <repoName1> <usr1> <user2> ...
+repo: <reponame2> <usr3> ...
+...
+```
+Inputs:
+1. path to names list with GitHub-IDs
+2. organization yes or no (default: no)
+  1. name of the organization
