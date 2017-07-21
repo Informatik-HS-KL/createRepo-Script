@@ -17,6 +17,16 @@ if [[ "$pathNames" = "" ]]; then
   pathNames='gitnames.txt'
 fi
 
+echo "organization (y/n)?"
+read org
+if [[ "$org" = "y" ]]; then
+  org="true"
+  echo "name of the organization?"
+  read orgName;
+else
+  org="false"
+fi
+
 echo "Input: $pathNames"
 
 array=($(<$pathNames))
@@ -29,10 +39,17 @@ for ((i = 0; i < ${#array[@]}; ++i)); do
 
     echo "repoName: $repoName user: ${array[$i]}"
 
+    if [[ org ]]; then
+      curl -H "Authorization: token $token" \
+      -X PUT \
+      https://api.github.com/repos/$orgName/$repoName/collaborators/${array[$i]} \
+      2>&1 | grep message || echo "OK, added user ${array[$i]}."
+    else
     curl -H "Authorization: token $token" \
     -X PUT \
-    https://api.github.com/repos/fog1992/$repoName/collaborators/${array[$i]} \
+    https://api.github.com/repos/user/$repoName/collaborators/${array[$i]} \
     2>&1 | grep message || echo "OK, added user ${array[$i]}."
+    fi
 done
 
 # for rn in $(<$pathNames); do
