@@ -44,7 +44,7 @@ else
   isOrg=false
 fi
 
-description="Repo_für_den_Kurs:'$className'"
+description="Repo für den Kurs $className"
 
 echo "Input: $pathNames private: $private auto_init: $auto_init isOrg: $isOrg"
 
@@ -55,10 +55,10 @@ for rn in $(<$pathNames); do
     if [[ $isOrg = true ]]; then
       curl -H "Authorization: token $token" \
       https://api.github.com/orgs/$orgName/repos \
-      -d $d
+      -d "$d"
     else
       curl -H "Authorization: token $token" \
       https://api.github.com/user/repos \
-      -d $d
+      -d "$d"
     fi
 done
