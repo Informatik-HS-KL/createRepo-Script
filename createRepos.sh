@@ -37,22 +37,22 @@ fi
 echo "organization (y/n)?"
 read org
 if [[ "$org" = "y" ]]; then
-  org="true"
+  isOrg=true
   echo "name of the organization?"
   read orgName;
 else
-  org="false"
+  isOrg=false
 fi
 
 description="Repo_für_den_Kurs:'$className'"
 
-echo "Input: $pathNames private: $private auto_init: $auto_init"
+echo "Input: $pathNames private: $private auto_init: $auto_init isOrg: $isOrg"
 
 for rn in $(<$pathNames); do
     echo "the next name is $rn"
     d='{"name":"'$className'_'$rn'","description":"'$description'","private":'$private',"auto_init":'$auto_init'}'
     echo $d;
-    if [[ org ]]; then
+    if [[ $isOrg = true ]]; then
       curl -H "Authorization: token $token" \
       https://api.github.com/orgs/$orgName/repos \
       -d $d
