@@ -31,7 +31,7 @@ Inputs:
 
 deletes repos in organization created with the createRepo-Script. (Reponames: classname_user)
 
-Iputs: 
+Inputs: 
 1. class name
 2. path to names list  
 3. name of the organization
