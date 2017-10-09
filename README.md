@@ -26,3 +26,12 @@ Inputs:
 1. path to names list with GitHub-IDs
 2. organization yes or no (default: no)
   1. name of the organization
+
+## deleteRepo-Script
+
+deletes repos in organization created with the createRepo-Script. (Reponames: classname_user)
+
+Iputs: 
+1. class name
+2. path to names list  
+3. name of the organization
