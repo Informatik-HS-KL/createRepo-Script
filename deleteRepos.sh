@@ -1,3 +1,4 @@
+# del repo script
 #!/bin/bash
 
 token=$(<token.txt)
