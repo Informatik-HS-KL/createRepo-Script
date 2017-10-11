@@ -1,3 +1,4 @@
+#inviteUsers script
 #!/bin/bash
 
 
