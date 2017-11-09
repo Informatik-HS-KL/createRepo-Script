@@ -1,4 +1,4 @@
-## createRepo-Script
+## GitHub-Scripts
 
 create GitHub-Repos withe a names list for students.
 
