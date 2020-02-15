@@ -1,6 +1,6 @@
 ## GitHub-Scripts
 
-create GitHub-Repos withe a names list for students.
+create GitHub-Repos with a names list for students.
 
 At First you have to save your GitHub-Accesstoken in a file (token.txt).
 
